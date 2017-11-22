@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
         ListAdapter adaptador=new Adaptador(lista_contactos, this);
         lv.setAdapter(adaptador);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            
-            @Override
+                        @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Object o=adapterView.getItemAtPosition(i);//Esto es un objeto contacto porque es lo que le pasamos al adaptador
                 Contacto c=(Contacto)o;
