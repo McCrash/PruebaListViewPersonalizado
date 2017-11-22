@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Contacto> lista_contactos=new ArrayList();
         lista_contactos.add(new Contacto("Pepe", "445431126"));
         lista_contactos.add(new Contacto("Ana", "946657878"));
+
+        //El adaptador es una clase personalizada que implementa el ListAdapter
+        //En el constructor pasamos la lista de objetos y "this", que hace referencia al contexto(Context)
         ListAdapter adaptador=new Adaptador(lista_contactos, this);
         lv.setAdapter(adaptador);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Object o=adapterView.getItemAtPosition(i);//Esto es un objeto contacto porque es lo que le pasamos al adaptador
                 Contacto c=(Contacto)o;
-                Log.v("Clicado", o.getClass().toString());
+                Log.v("Clicado", c.getNombre()+" "+c.getTelefono());
             }
         });
     }
